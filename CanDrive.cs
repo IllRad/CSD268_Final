@@ -22,13 +22,30 @@ public class Class1
     public void TestMin(){
         CanDrive(int.MinValue);
     }
-
     [TestMethod]
     [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
     public void TestMinPlus(){
         CanDrive(int.MinValue+1);
     }
 
+
+    //
+    
+    [TestMethod]
+    public void TestNegative(){
+        Assert.Equals(false,CanDrive(-1));
+    }
+    [TestMethod]
+    public void TestZero(){
+        Assert.Equals(false,CanDrive(0));
+    }
+    [TestMethod]
+    public void TestOne(){
+        Assert.Equals(false,CanDrive(1));
+    }
+
+    //
+    
     [TestMethod]
     public void TestFalse(){
         Assert.Equals(false,CanDrive(15));
@@ -41,6 +58,8 @@ public class Class1
     public void TestTrue(){
         Assert.Equals(true,CanDrive(17));
     }
+
+    //
 
     [TestMethod]
     [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
